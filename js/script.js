@@ -55,15 +55,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Navbar scroll effect
     const navbar = document.querySelector('.navbar');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.style.background = 'rgba(13, 13, 16, 0.95)';
-            navbar.style.boxShadow = '0 5px 20px rgba(0,0,0,0.5)';
-        } else {
-            navbar.style.background = 'rgba(13, 13, 16, 0.8)';
-            navbar.style.boxShadow = 'none';
-        }
-    });
+    const updateNavbarState = () => {
+        if (!navbar) return;
+        navbar.classList.toggle('scrolled', window.scrollY > 50);
+    };
+    window.addEventListener('scroll', updateNavbarState, { passive: true });
+    updateNavbarState();
 
 
     // FAQ Accordion
