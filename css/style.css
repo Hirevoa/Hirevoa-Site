@@ -1406,6 +1406,63 @@ h4 {
     width: 100%;
 }
 
+/* Reels Placeholder Carousel (replaces OS download cards) */
+.reels-carousel-controls {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    max-width: 900px;
+    margin: 0 auto 18px;
+}
+
+.reels-nav {
+    padding: 10px 16px;
+}
+
+.reels-carousel {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    padding: 6px 4px;
+    max-width: 900px;
+    margin: 0 auto;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.reels-carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.reel-card {
+    flex: 0 0 clamp(200px, 22vw, 260px);
+    aspect-ratio: 9 / 16;
+    padding: 0;
+    scroll-snap-align: start;
+    border-radius: 14px;
+
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02)),
+        var(--card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    position: relative;
+    overflow: hidden;
+}
+
+.reel-card::before {
+    content: '';
+    position: absolute;
+    inset: 14px;
+    border-radius: 10px;
+    border: 1px dashed rgba(255, 255, 255, 0.12);
+    background: rgba(13, 13, 16, 0.15);
+}
+
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
     width: 10px;
